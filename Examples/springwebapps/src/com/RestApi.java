@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,12 +34,17 @@ public class RestApi {
 	public Map<String, String> store(@RequestBody Profile profile) {
 		int size = service.store(profile);
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("status", "Size of list: "+size);
+		map.put("status", "Row updated: "+size);
 		return map;
 	}
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Profile> fetchProfiles() {
 		List<Profile> list = service.getProfiles();
 		return list;
+	}
+	
+	@RequestMapping(path = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Profile fetchProfile(@PathVariable("id") int id) {
+		return service.getProfile(id);
 	}
 }
