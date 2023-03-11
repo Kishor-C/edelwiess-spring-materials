@@ -2,11 +2,22 @@ package com.beans;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "profile")
 public class Profile {
-	private int profileId;
+	// keep auto-generate primary key annotation - implement the save method in DAO layer
+	@Id
+	@Column(name = "profile_id")
+	private int profileId; // profileid
 	private String name;
 	private LocalDate birthday;
 	private long phone;
+	
 	public int getProfileId() {
 		return profileId;
 	}

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.beans.Profile;
 
-@Repository
+//@Repository
 public class ProfileDaoJdbcTemplateImpl implements ProfileDao {
 
 	// we need to auto-wire JdbcTemplate to run SQL queries

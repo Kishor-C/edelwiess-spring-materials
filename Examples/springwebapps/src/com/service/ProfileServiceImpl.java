@@ -14,7 +14,7 @@ import com.dao.ProfileDao;
 public class ProfileServiceImpl implements ProfileService {
 	// autowired dao layer using interface
 	@Autowired
-	private ProfileDao dao; // supplies ProfileDaoJdbcImpl
+	private ProfileDao dao; // supplies ProfileDaoHibernateTemplateImpl
 	
 	@Override
 	public int store(Profile profile) {
